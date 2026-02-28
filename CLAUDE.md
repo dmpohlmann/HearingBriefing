@@ -1,45 +1,185 @@
-# CLAUDE.md
+# HearingBriefing – Claude Code project instructions
 
-This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+This file tells Claude Code how to operate within this repository. Read it in full before taking any action.
 
-## Project
+---
 
-This repository is a structured prompt framework for generating intelligence briefings from Australian Senate committee hearing transcripts. It is designed for DCCEEW (Department of Climate Change, Energy, the Environment and Water) SES staff covering the Environment Protection Reform Bill 2025 inquiry cycle.
+## What this project does
 
-This is a document/prompt engineering project — there are no build tools, tests, or runnable code.
+This repository contains the tools, templates and prompt for generating **senate committee hearing intelligence briefings** for Senior Executive Service staff at the Department of Climate Change, Energy, the Environment and Water (DCCEEW).
 
-## Key files
+The system takes a Hansard transcript or auto-generated transcript as input and produces a structured intelligence briefing populated into a branded DOCX output template.
 
-- `prompt.md` — The operational prompt. Copy from "Role and context" through "Tone and quality standards", fill bracketed fields, append a Hansard/transcript, and submit to Claude. This is the primary deliverable.
-- `DCCEEW_Senate_Briefing_UserGuide.md` — Design rationale for the five-layer intelligence model and output structure. Read this to understand *why* the prompt is structured the way it is.
-- `DCCEEW_Briefing_OutputTemplate.docx` — Word template for the final briefing output format.
-- `sources/` — Hansard PDFs and other source transcripts used as inputs.
+The intended audience is SES Band 1 and above. The product must meet the standards of a trusted senior colleague's analysis – not a transcription or summary service.
 
-## Architecture
+---
 
-### Five-layer intelligence model
+## Repository structure
 
-Every section in Part B of a briefing applies five sequential layers, each answering a distinct question. **Analytical separation between layers is the core design principle** — factual, policy, and political analysis must never bleed across layers.
+```
+HearingBriefing/
+├── sources/                          # Input transcripts (Hansard or auto-generated)
+├── .claude/                          # Claude Code configuration
+├── .git/
+├── CLAUDE.md                         # This file – Claude Code reads this first
+├── README.md                         # Human-facing project overview
+├── prompt.md                         # The operational briefing prompt
+├── DCCEEW_Briefing_OutputTemplate.docx  # DOCX template to populate
+├── DCCEEW_Senate_Briefing_UserGuide.md # Design rationale and usage guidance
+└── [output files]                    # Completed briefings – see naming convention below
+```
 
-| Layer | Purpose | Key constraint |
-|-------|---------|---------------|
-| L1 – The Record | Factual account of what happened | No interpretation; cross-reference Hansard pages |
-| L2 – Legislative & Policy Signal | Map testimony to bill provisions | Must stay free of political framing |
-| L3 – Political Intelligence | Senator intent, dynamics, signals | Must stay free of policy assessment |
-| L4 – Risk & Exposure | Action items, commitments on notice, official exposure | Direct and unsparing; log commitments with senator/question/witness/due date |
-| L5 – Forward Look | Predictive assessment of trajectory | Genuinely predictive, not hedged |
+### Output file naming convention
 
-### Output structure
+```
+[COMMITTEE]_HIB_[NNN]_[YYYYMMDD].docx
+```
 
-The briefing has three parts:
-- **Part A** – Executive briefing (standalone for time-poor readers): hearing significance, priority flags, political temperature, forward look
-- **Part B** – Section briefings grouped flexibly (by bill / witness bloc / theme / hybrid) with fixed five-layer anatomy per section. Top-level numbering is continuous across all sections.
-- **Part C** – Quick reference tables: commitments on notice, key quotes, forward action items
+- `[COMMITTEE]` – committee acronym, e.g. `ECLC` for Environment and Communications Legislation Committee
+- `HIB` – Hearing Intelligence Briefing (fixed)
+- `[NNN]` – zero-padded sequence number, e.g. `001`, `002`
+- `[YYYYMMDD]` – hearing date, not production date
 
-### Conventions when editing the prompt
+Example: `ECLC_HIB_002_20251114.docx`
 
-- Bracketed fields `[like this]` are user-fill placeholders — preserve them.
-- `///slashed paragraphs///` are instruction placeholders that guide Claude's output — they are not content and should not appear in the final briefing.
-- `[TRANSCRIPT QUALITY – VERIFY]` flags are an active quality control mechanism for auto-generated transcripts, not disclaimers.
-- Use en-dashes with spaces ( – ), never em-dashes (—).
-- Follow the Australian Government Style Manual for formatting decisions.
+---
+
+## How to generate a briefing
+
+### Inputs required
+
+1. A transcript file in `sources/` – Hansard (preferred) or auto-generated
+2. The operational prompt from `prompt.md`
+3. The output template `DCCEEW_Briefing_OutputTemplate.docx`
+
+### Process
+
+1. Read `prompt.md` in full before doing anything else
+2. Read the transcript from `sources/`
+3. Apply the five-layer analytical framework to produce the briefing content (see below)
+4. Populate `DCCEEW_Briefing_OutputTemplate.docx` with the output – do not respond in chat
+5. Save the completed briefing using the naming convention above
+
+### Critical: populate the DOCX directly
+
+Do not produce the briefing as a chat response. Populate the output template DOCX, preserving:
+- All existing styles and heading hierarchy
+- Table structures (cover metadata table, witness tables, appendix tables)
+- Header and footer content – update `[Insert inquiry name]` and `[Insert hearing date]` fields
+- Classification markings ("OFFICIAL Sensitive")
+- The AI disclosure table on the cover page
+
+Replace all `[bracketed placeholder fields]` with real content. Replace all `///slashed instruction blocks///` with actual dot point content. Remove any empty rows from Part C tables before saving.
+
+---
+
+## The five-layer analytical framework
+
+Every section in Part B must apply all five layers in order. This is the core analytical structure – do not collapse or skip layers.
+
+| Layer | Name | Core question | Key constraint |
+|-------|------|---------------|----------------|
+| L1 | The record | What actually happened? | Factual only – no interpretation |
+| L2 | Legislative and policy signal | What does this mean for the bills? | Flag provision numbers |
+| L3 | Political intelligence | What are senators actually doing? | Must stay strictly separate from L2 |
+| L4 | Risk and exposure | What should DCCEEW be watching? | Log every commitment on notice individually |
+| L5 | Forward look | What is coming? | Be genuinely predictive – do not hedge |
+
+**The most important design principle:** L2 and L3 must never bleed into each other. Political framing must not colour a policy assessment, and policy analysis must not carry a political interpretation. If L3 has low signal in a section, state that explicitly – do not pad.
+
+---
+
+## Formatting rules
+
+These are non-negotiable for this project.
+
+- **Dot points throughout** – up to 3 levels, fewer is better. Do not use paragraphs in briefing content unless a specific instruction says otherwise.
+- **En-dashes with a space either side ( – )** – never em-dashes (—).
+- **Sentence case for all headings** – never title case.
+- **No ampersands** – always write "and".
+- **Australian Government Style Manual** conventions apply to all formatting decisions.
+- **Author-date referencing** where references are needed (Style Manual compliant).
+- **Continuous dot point numbering** across all sections in Part B – do not restart at each new section.
+- **One witness per line** in the witness table for each section.
+- **Hansard page references** – include where available; leave blank if using an auto-generated transcript.
+
+---
+
+## Accuracy requirements
+
+**Names, organisations and roles must be accurate and correctly associated.** Misattribution in an SES product is a serious credibility risk. Double-check every attribution before including it.
+
+This applies especially to:
+- Witness names, titles and organisations
+- Senators and their party affiliations
+- Which senator asked which question
+- Which witness gave which answer
+
+---
+
+## Transcript quality flagging
+
+When using an auto-generated transcript (not Hansard), apply the flag `[TRANSCRIPT QUALITY – VERIFY]` wherever the source text creates genuine analytical uncertainty. Pay particular attention to:
+
+- Provision numbers – a single character changes the legal meaning
+- Proper nouns – names and organisations are frequently mangled
+- Technical environmental or legal terminology
+- Internally inconsistent passages or missing answers
+
+Never silently smooth over ambiguity. Surface it with the flag.
+
+When using Hansard, omit the quality flag section entirely.
+
+---
+
+## Part A – Priority flags structure
+
+Part A uses four named categories (not emoji traffic lights). Populate each with dot points. Write 'Nil' if a category has no items – do not leave it blank.
+
+1. **Urgent action** – commitments on notice with imminent deadlines, significant reputational risk
+2. **Significant risks or exposures** – near-term attention items
+3. **Legislative or policy signals** – strategic importance
+4. **Forward preparations** – upcoming hearings or reporting
+
+---
+
+## Section grouping logic
+
+Choose the grouping that best serves analytical clarity for DCCEEW readers for this specific hearing. Document the choice in the Section grouping note before the first section.
+
+| Grouping | When to use |
+|----------|-------------|
+| By bill | Senators direct inquiry at specific bills |
+| By witness bloc | Insights cluster by witness type rather than bill |
+| By theme | Cross-cutting issues run across multiple bills and witnesses |
+| Hybrid | Distinct government witness bloc plus thematic bill discussion |
+
+---
+
+## What this project is not
+
+- Not an Estimates briefing system – the framework is calibrated for legislative inquiry committees
+- Not suitable for classified material – use only public Hansard or auto-generated transcripts
+- Not a summarisation tool – the five-layer model produces intelligence, not summary
+
+---
+
+## Files not to modify
+
+- `DCCEEW_Briefing_OutputTemplate.docx` – this is the canonical template; copy it for each output, do not edit it in place
+- `prompt.md` – treat as read-only operational source; raise changes through the development process
+
+---
+
+## Suggested workflow for a new hearing
+
+```
+1. Confirm transcript is in sources/ and note whether it is Hansard or auto-generated
+2. Read prompt.md
+3. Note the hearing date and committee for the output filename
+4. Generate the briefing content applying the five-layer framework
+5. Populate a copy of DCCEEW_Briefing_OutputTemplate.docx
+6. Save as [COMMITTEE]_HIB_[NNN]_[YYYYMMDD].docx in the repo root
+7. Verify: all placeholders replaced, all /// blocks removed, empty table rows deleted,
+   header/footer fields updated, witness names verified
+```
