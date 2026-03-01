@@ -48,7 +48,24 @@ Pay particular attention to:
 
 ## Output structure
 
-Produce the briefing in three parts, in this order. Use dot points throughout – up to 3 levels, but fewer levels is better. Do not use paragraphs unless a specific instruction says otherwise.
+Produce the briefing in three parts, in this order. Do not use paragraphs unless a specific instruction says otherwise.
+
+### DOCX list styles
+
+The output template uses three named list styles. Apply the correct style at each level:
+
+- **L1: Dot points** — numbered (1. 2. 3.) — top-level content points. Numbering continues across all layers and sections in Part B.
+- **L2: Dot points** — lettered (a) b) c)) — sub-points that expand on or detail an L1 point.
+- **L3: Dot points** — bullet — third-level detail under an L2 point (use sparingly).
+
+Do not flatten multi-part content into a single L1 point — use L2 and L3 wherever a top-level point needs elaboration. Fewer levels is better where the content allows it.
+
+### Referencing rule
+
+This rule applies to all layers (L1–L5) and all sections:
+
+- When working from **Hansard**, reference the Hansard page (e.g. "Hansard p. 5") only when a point directly cites a specific moment in the transcript. Do not add references to summarised or synthesised points.
+- When working from an **auto-generated transcript**, reference approximate timestamps instead of page numbers, using the same rule.
 
 ---
 
@@ -61,7 +78,7 @@ Include four fixed elements:
 - 5–7 dot points on the overall importance of this hearing for DCCEEW and the bills.
 - Was it routine, significant, or a turning point in the inquiry?
 
-**Priority flags**
+**Priority flags** *(2–5 points per category; write 'Nil' if none)*
 
 The following items may require SES attention. Populate each category with dot points. If a category has no items, write 'Nil' rather than leaving it blank.
 
@@ -77,12 +94,12 @@ The following items may require SES attention. Populate each category with dot p
 *Forward preparations*
 - [Forward-looking preparation items for upcoming hearings or reporting]
 
-**Political temperature**
+**Political temperature** *(4–7 points)*
 
 - Dot points assessing overall committee dynamics, senator positioning and political pressure levels.
 - Write knowing this may be shared with or paraphrased for the minister – plain English, no jargon.
 
-**Forward look**
+**Forward look** *(3–5 points)*
 
 - Dot points on what is coming, what DCCEEW (and especially the Environment Information and Assessment Division) needs to be ready for, and the most important preparatory actions.
 
@@ -101,72 +118,86 @@ The following items may require SES attention. Populate each category with dot p
 
 Each section follows this **fixed anatomy** – apply all five layers in order. If a layer has low signal in a particular section, state that explicitly rather than padding.
 
-**Top-level dot point numbering continues across all sections in Part B.** Do not restart numbering at each new section.
+**Top-level dot point numbering (L1: Dot points) continues across all sections in Part B.** Do not restart numbering at each new section or layer.
+
+#### Layer-by-layer content instructions
+
+These instructions define what goes into each layer. The section anatomy below shows *where* each layer sits in the document structure.
+
+**L1 – The record** *(5–15 points, depending on witness session length)*
+
+- Factual account only – no interpretation.
+- Cover: who was present; what questions were asked and who asked them; what answers were given; what documents were tabled.
+- Apply the referencing rule (see above) for direct citations.
+
+**L2 – Legislative and policy signal** *(3–8 points)*
+
+- Map testimony to specific bill provisions.
+- Identify concessions, clarifications, contested provisions and new interpretive positions placed on the public record.
+- Flag any divergence from DCCEEW's stated position.
+- Flag provision numbers wherever possible.
+
+**L3 – Political intelligence** *(3–6 points, or explicit "low signal" statement)*
+
+- Assess senatorial intent and dynamics, kept strictly separate from L2.
+- Identify senator agendas, cross-party dynamics, rhetorical patterns and signals about likely dissenting reports.
+- If low signal, write: "Political dynamics: low signal in this section."
+
+**L4 – Risk and exposure** *(3–8 points)*
+
+- Log each commitment on notice individually: senator / question / witness / date required.
+- Identify areas of exposure for DCCEEW.
+- Note inconsistencies surfaced in testimony.
+- If an official appeared to struggle under questioning, note with appropriate sensitivity – focus on exposure risk, not the individual.
+
+**L5 – Forward look** *(2–5 points)*
+
+- Based on the trajectory of this line of inquiry: what is likely to continue? What preparation does DCCEEW need? What signals about committee recommendations are emerging?
 
 ---
 
+#### Section anatomy
+
+Each section in Part B follows this structure:
+
 #### Section [N]: [Bill name / Witness group / Theme]
 
-*Hansard pages: [xx–xx, leave blank if auto-generated transcript]*
-*Witnesses: [Name, organisation, role – one witness per line]*
+| Hansard pages / Timestamps | [xx–xx or approximate timestamps] |
+| Witnesses | [Name, organisation, role – one witness per line] |
 
 **L1 – The record**
 
 ///
-- Dot points.
-- Factual account only.
-  - Who was present
-  - what questions were asked; and
-    - who asked them
-  - what answers were given; and
-  - what documents were tabled.
-- No interpretation.
-- Cross-reference Hansard page numbers where available.
+1. [L1: Dot points – see layer instructions above]
+   a) [L2: Dot points]
 ///
 
 **L2 – Legislative and policy signal**
 
 ///
-- Dot points.
-- Map testimony to specific bill provisions.
-- Identify concessions, clarifications, contested provisions and new interpretive positions placed on the public record.
-- Any divergence from DCCEEW's stated position.
-- Flag provision numbers wherever possible.
+1. [L1: Dot points – see layer instructions above]
+   a) [L2: Dot points]
 ///
 
 **L3 – Political intelligence**
 
 ///
-- Dot points.
-- Assess senatorial intent and dynamics, kept strictly separate from L2.
-- Identify senator:
-  - agendas,
-  - cross-party dynamics,
-  - rhetorical patterns, and
-  - signals about likely dissenting reports.
-- If low signal, write: 'Political dynamics: low signal in this section.'
+1. [L1: Dot points – see layer instructions above]
+   a) [L2: Dot points]
 ///
 
 **L4 – Risk and exposure**
 
 ///
-- Dot points.
-- Log each commitment on notice individually:
-  - senator / question / witness / date required.
-- Identify areas of exposure for DCCEEW.
-- Inconsistencies surfaced in testimony.
-- Officials who appeared to struggle under questioning.
-  - Note with appropriate sensitivity – focus on exposure risk, not the individual.
+1. [L1: Dot points – see layer instructions above]
+   a) [L2: Dot points]
 ///
 
 **L5 – Forward look**
 
 ///
-- Dot points.
-- Based on the trajectory of this line of inquiry:
-  - what is likely to continue?
-  - What preparation does DCCEEW need?
-  - What signals about committee recommendations are emerging?
+1. [L1: Dot points – see layer instructions above]
+   a) [L2: Dot points]
 ///
 
 ---
@@ -197,9 +228,10 @@ Three tables, always in this order. Remove any empty rows before finalising.
 
 ## Tone and quality standards
 
-- **Use dot points throughout.** Up to 3 levels, but fewer is better. Do not use paragraphs unless specifically instructed.
+- **Use the three named list styles** (L1: Dot points, L2: Dot points, L3: Dot points) for all briefing content. Fewer levels is better where the content allows it. Do not use paragraphs unless specifically instructed.
 - **Use en-dashes with a space either side ( – ) throughout.** Do not use em-dashes (—).
 - **Follow the Australian Government Style Manual** for all formatting decisions. Where references are needed, use author-date style consistent with the Style Manual.
+- **Apply the referencing rule** (Hansard page or timestamp for direct citations only) consistently across all layers. Do not add references to summarised or synthesised points.
 - **Factual completeness in L1 must be unimpeachable.** SES staff may cite this briefing when briefing ministers or preparing responses to questions on notice.
 - **Names, organisations and roles must be accurate and correctly associated.** Double-check every attribution before including it. Misattribution in an SES product is a serious credibility risk.
 - **L2 and L3 must be analytically separate.** Political framing must not colour a policy assessment, and policy analysis must not carry a political interpretation.

@@ -64,12 +64,16 @@ Example: `ECLC_HIB_002_20251114.docx`
 
 Do not produce the briefing as a chat response. Populate the output template DOCX, preserving:
 - All existing styles and heading hierarchy
-- Table structures (cover metadata table, witness tables, appendix tables)
+- Table structures (cover metadata table, section metadata tables, appendix tables)
 - Header and footer content – update `[Insert inquiry name]` and `[Insert hearing date]` fields
 - Classification markings ("OFFICIAL Sensitive")
 - The AI disclosure table on the cover page
 
-Replace all `[bracketed placeholder fields]` with real content. Replace all `///slashed instruction blocks///` with actual dot point content. Remove any empty rows from Part C tables before saving.
+When writing list content, use the correct L1/L2/L3: Dot points styles (see DOCX template styles section below).
+
+Section metadata uses a two-row table (Hansard pages / Timestamps, Witnesses) – not italic text.
+
+Replace all `[bracketed placeholder fields]` with real content. Replace all `///slashed instruction blocks///` with actual content in the appropriate L1/L2/L3 styles. Remove any empty rows from Part C tables before saving.
 
 ---
 
@@ -93,15 +97,27 @@ Every section in Part B must apply all five layers in order. This is the core an
 
 These are non-negotiable for this project.
 
-- **Dot points throughout** – up to 3 levels, fewer is better. Do not use paragraphs in briefing content unless a specific instruction says otherwise.
+- **Use the three named list styles** (L1: Dot points, L2: Dot points, L3: Dot points) for all briefing content – fewer levels is better. Do not use paragraphs in briefing content unless a specific instruction says otherwise.
 - **En-dashes with a space either side ( – )** – never em-dashes (—).
 - **Sentence case for all headings** – never title case.
 - **No ampersands** – always write "and".
 - **Australian Government Style Manual** conventions apply to all formatting decisions.
 - **Author-date referencing** where references are needed (Style Manual compliant).
-- **Continuous dot point numbering** across all sections in Part B – do not restart at each new section.
-- **One witness per line** in the witness table for each section.
-- **Hansard page references** – include where available; leave blank if using an auto-generated transcript.
+- **L1: Dot points numbering is continuous** across all layers and sections in Part B – do not restart at each new section or layer.
+- **One witness per line** in the section metadata table.
+- **Referencing rule** – include a Hansard page (e.g. "Hansard p. 5") or approximate timestamp only when a point directly cites a specific moment. Do not add references to summarised or synthesised points. Use Hansard pages for Hansard sources; approximate timestamps for auto-generated transcripts.
+
+---
+
+## DOCX template styles
+
+The template uses three list styles. Apply the correct style for each level:
+
+- **L1: Dot points** — numbered (1. 2. 3.) — top-level content points
+- **L2: Dot points** — lettered (a) b) c)) — sub-points that expand on or detail an L1 point
+- **L3: Dot points** — bullet — third-level detail under an L2 point (use sparingly)
+
+Top-level numbering (L1) continues across all layers and sections within Part B. Do not restart numbering at each new section or layer. Do not flatten multi-part content into a single L1 point — use L2 and L3 wherever a top-level point needs elaboration.
 
 ---
 
@@ -164,10 +180,10 @@ Choose the grouping that best serves analytical clarity for DCCEEW readers for t
 
 ---
 
-## Files not to modify
+## Files not to modify during briefing generation
 
 - `DCCEEW_Briefing_OutputTemplate.docx` – this is the canonical template; copy it for each output, do not edit it in place
-- `prompt.md` – treat as read-only operational source; raise changes through the development process
+- `prompt.md` – treat as read-only during briefing generation; updates to the prompt itself go through the development process
 
 ---
 
