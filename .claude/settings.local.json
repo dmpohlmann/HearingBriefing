@@ -1,0 +1,17 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git:*)",
+      "Bash(/usr/bin/env bash:*)",
+      "Bash(echo return code: $RET:*)",
+      "Bash(echo RC=$?:*)",
+      "Bash(python3:*)",
+      "Bash(echo EXIT:$?:*)",
+      "Bash(echo WHICH_EXIT:$?:*)",
+      "Bash(powershell.exe:*)",
+      "Bash(where:*)",
+      "Bash(rm:*)",
+      "Bash(python:*)"
+    ]
+  }
+}
